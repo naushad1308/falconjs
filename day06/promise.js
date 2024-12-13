@@ -63,9 +63,11 @@ function edit() {
 //     .then(sendEmail)
 //     .then(login)
 //     .then(display)
-//     .then(edit).catch((err) => {
+//     .then(edit)
+// .catch((err) => {
 //         console.log(err)
-//     })
+//     }).finally(){
+// console.log("completed")}
 
 
 
@@ -79,6 +81,8 @@ async function authentication() {
 
     } catch (err) {
         console.log(err)
+    } finally {
+        console.log("Authentication completed")
     }
 }
 authentication()

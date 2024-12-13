@@ -8,23 +8,34 @@
 
 // console.log(filteredArray)
 
-function isOdd(number) {
-    return number % 2;
-}
+// function isOdd(number) {
+//     return number % 2;
+// }
 
-function getOddNumbers() {
-    return Array.prototype.filter.call(arguments, isOdd);
-}
+// function getOddNumbers() {
+//     return Array.prototype.filter.call(arguments, isOdd);
+// }
 
-let results = getOddNumbers(10, 1, 3, 4, 8, 9);
-// console.log(results);
+// let results = getOddNumbers(10, 1, 3, 4, 8, 9);
+// // console.log(results);
 
-let arr = [10, 1, 3, 4, 8, 9]
+// let arr = [10, 1, 3, 4, 8, 9]
 
-console.log(typeof (arr))
+// console.log(typeof (arr))
 
 // let filteredArray = arr.filter(function (number) {
 //     return number % 2;
 // })
 
 // console.log(filteredArray)
+
+
+function getName(a) {
+    console.log("hello")
+    if (a === 2) {
+        return
+    }
+    getName()
+}
+
+getName()

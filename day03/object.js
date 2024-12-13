@@ -99,8 +99,56 @@
 
 // 7  Singleton Pattern
 
-var obj = new (function () {
-    this.name = "john Doe",
-        this.age = 25
-})();
-console.log(obj)
+// var obj = new (function () {
+//     this.name = "john Doe",
+//         this.age = 25
+// })();
+// console.log(obj)
+
+
+
+// Thakur
+// object literals
+const person = {
+    name: "john",
+    age: 25,
+    gender: "male",
+    isAged: false,
+    skills: ['js', 'react', 'mongodb'],
+    adress: {
+        hNo: 24,
+        street: "abc",
+        pincode: 24512,
+    },
+    sayName: function () {
+        console.log(person.name)
+    }
+}
+
+// console.log(person.name, person.isAged,person.skills)
+// console.log(person.skills[2])
+
+// console.log(person.sayName())
+
+// Function contructor
+function Person(name, age, skill, address) {
+    this.name = name,
+        this.age = age,
+        this.skill = skill,
+        this.address = address,
+        this.sayName = function () {
+            console.log(this.name)
+        }
+
+}
+let skills = ['js', 'react', 'mongodb']
+let add = {
+    hNo: 24,
+    street: "abc",
+    pincode: 24512,
+}
+let person1 = new Person("john", 25, skills, add)
+console.log(person1)
+let person2 = new Person("abc", 15, skills, add)
+console.log(person1.sayName())
+console.log(person2)
