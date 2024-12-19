@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive E-commerce Navbar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <nav class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold text-gray-800">ShopEasy</a>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-800 hover:text-blue-500">Home</a>
+                    <a href="#" class="text-gray-800 hover:text-blue-500">Shop</a>
+                    <a href="#" class="text-gray-800 hover:text-blue-500">Deals</a>
+                    <a href="#" class="text-gray-800 hover:text-blue-500">Contact</a>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="hidden md:block relative">
+                    <input type="text" placeholder="Search products..."
+                        class="w-64 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    <button class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500">
+                        🔍
+                    </button>
+                </div>
+
+                <!-- Icons -->
+                <div class="flex items-center space-x-4 ">
+                    <!-- Cart Icon -->
+                    <button id="cart-button" class="relative text-gray-800 hover:text-blue-500 focus:outline-none">
+                        <span0 class="text-red-600 font-bold absolute -top-3">5</span0>
+                        🛒
+                    </button>
+                    <!-- User Icon -->
+                    <a href="#" class="text-gray-800 hover:text-blue-500">
+                        👤
+                    </a>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
+                        ☰
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-50 border-t border-gray-200">
+            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Home</a>
+            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Shop</a>
+            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Deals</a>
+            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Right Side Cart Menu -->
+    <div id="cart-menu"
+        class="fixed top-0 right-0 w-64 h-full bg-white shadow-md transform translate-x-full transition-transform duration-300">
+        <div class="p-4 border-b">
+            <h2 class="text-lg font-bold">Your Cart</h2>
+            <button id="close-cart" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 focus:outline-none">
+                ✖
+            </button>
+        </div>
+        <div class="p-4">
+            <p class="text-gray-600">Your cart is currently empty.</p>
+        </div>
+    </div>
+
+    <!-- main  Product section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex">
+        <!-- Left Section: Category Filters -->
+        <div class="w-1/4 pr-4">
+            <h2 class="text-lg font-bold mb-4">Categories</h2>
+            <form>
+                <div class="mb-2">
+                    <label class="inline-flex items-center">
+                        <input type="radio" class="form-radio text-blue-600" name="category" value="all" checked>
+                        <span class="ml-2">All Products</span>
+                    </label>
+                </div>
+                <div class="mb-2">
+                    <label class="inline-flex items-center">
+                        <input type="radio" class="form-radio text-blue-600" name="category" value="electronics">
+                        <span class="ml-2">Electronics</span>
+                    </label>
+                </div>
+                <div class="mb-2">
+                    <label class="inline-flex items-center">
+                        <input type="radio" class="form-radio text-blue-600" name="category" value="clothing">
+                        <span class="ml-2">Clothing</span>
+                    </label>
+                </div>
+                <div class="mb-2">
+                    <label class="inline-flex items-center">
+                        <input type="radio" class="form-radio text-blue-600" name="category" value="home">
+                        <span class="ml-2">Home & Kitchen</span>
+                    </label>
+                </div>
+                <div class="mb-2">
+                    <label class="inline-flex items-center">
+                        <input type="radio" class="form-radio text-blue-600" name="category" value="books">
+                        <span class="ml-2">Books</span>
+                    </label>
+                </div>
+            </form>
+        </div>
+
+        <!-- Right Section: Product Cards -->
+        <div class="w-3/4 flex">
+            <div class="w-3/4">
+                <h2 class="text-lg font-bold mb-4">Products</h2>
+                <div id="productContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Example Product Card -->
+                    <div class="border rounded-lg p-4 shadow hover:shadow-lg transition-shadow">
+                        <img src="https://via.placeholder.com/150" alt="Product Image"
+                            class="w-full h-32 object-cover mb-2">
+                        <h3 class="font-semibold py-1">Product Title 1</h3>
+                        <div class="flex justify-between py-1">
+                            <span class="text-gray-600">$19.99</span>
+                            <span class="text-gray-600">Rating:3.4</span>
+                        </div>
+
+                        <button class="mt-2 w-full bg-yellow-600 text-black px-4 py-2 rounded add-to-cart"
+                            data-title="Product Title 1" data-price="$19.99">Add to Cart</button>
+                    </div>
+
+                    <!-- Add more product cards here -->
+                </div>
+            </div>
+
+
+
+            <script>
+                // Mobile Menu Toggle
+                const mobileMenuButton = document.getElementById('mobile-menu-button');
+                const mobileMenu = document.getElementById('mobile-menu');
+                const cartButton = document.getElementById('cart-button');
+                const cartMenu = document.getElementById('cart-menu');
+                const closeCartButton = document.getElementById('close-cart');
+
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+
+                // Cart Menu Toggle
+                cartButton.addEventListener('click', () => {
+                    cartMenu.classList.remove('translate-x-full');
+                });
+
+                closeCartButton.addEventListener('click', () => {
+                    cartMenu.classList.add('translate-x-full');
+                });
+
+
+            </script>
+            <script type="module" src="./script.js"></script>
+</body>
+
+</html>
