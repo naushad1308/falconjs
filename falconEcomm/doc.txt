@@ -1,8 +1,13 @@
 Fetch products
 product render
-searchFilter
+searchFilter > debouncing / throtlling
 category filters
 tab filters
 cart
+Load more button API cal
+Light and Dark mode
+Multistep progress bar
+Scroll Indicator
+Pagination
 
 

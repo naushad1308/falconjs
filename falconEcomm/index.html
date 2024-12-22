@@ -27,7 +27,7 @@
 
                 <!-- Search Bar -->
                 <div class="hidden md:block relative">
-                    <input type="text" placeholder="Search products..."
+                    <input id="searchInput" type="text" placeholder="Search products..."
                         class="w-64 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
                     <button class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500">
                         🔍
@@ -84,32 +84,32 @@
             <form>
                 <div class="mb-2">
                     <label class="inline-flex items-center">
-                        <input type="radio" class="form-radio text-blue-600" name="category" value="all" checked>
+                        <input type="radio" class="form-radio text-blue-600" name="category" value="products" checked>
                         <span class="ml-2">All Products</span>
                     </label>
                 </div>
                 <div class="mb-2">
                     <label class="inline-flex items-center">
                         <input type="radio" class="form-radio text-blue-600" name="category" value="electronics">
-                        <span class="ml-2">Electronics</span>
+                        <span class="ml-2">electronics</span>
                     </label>
                 </div>
                 <div class="mb-2">
                     <label class="inline-flex items-center">
-                        <input type="radio" class="form-radio text-blue-600" name="category" value="clothing">
-                        <span class="ml-2">Clothing</span>
+                        <input type="radio" class="form-radio text-blue-600" name="category" value="jewelery">
+                        <span class="ml-2">jewelery</span>
                     </label>
                 </div>
                 <div class="mb-2">
                     <label class="inline-flex items-center">
-                        <input type="radio" class="form-radio text-blue-600" name="category" value="home">
-                        <span class="ml-2">Home & Kitchen</span>
+                        <input type="radio" class="form-radio text-blue-600" name="category" value="men's clothing">
+                        <span class="ml-2">men's clothing</span>
                     </label>
                 </div>
                 <div class="mb-2">
                     <label class="inline-flex items-center">
-                        <input type="radio" class="form-radio text-blue-600" name="category" value="books">
-                        <span class="ml-2">Books</span>
+                        <input type="radio" class="form-radio text-blue-600" name="category" value="women's clothing">
+                        <span class="ml-2">women's clothing</span>
                     </label>
                 </div>
             </form>
@@ -121,7 +121,7 @@
                 <h2 class="text-lg font-bold mb-4">Products</h2>
                 <div id="productContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <!-- Example Product Card -->
-                    <div class="border rounded-lg p-4 shadow hover:shadow-lg transition-shadow">
+                    <div class="border rounded-lg p-4 shadow hover:shadow-lg transition-shadow h-[400px]">
                         <img src="https://via.placeholder.com/150" alt="Product Image"
                             class="w-full h-32 object-cover mb-2">
                         <h3 class="font-semibold py-1">Product Title 1</h3>
