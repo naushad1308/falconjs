@@ -9,48 +9,48 @@
 </head>
 
 <body>
-    <nav class="bg-white shadow-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
-                <div class="flex-shrink-0">
-                    <a href="#" class="text-2xl font-bold text-gray-800">ShopEasy</a>
-                </div>
-
-                <!-- Desktop Navigation Links -->
-                <div class="hidden md:flex space-x-8">
-                    <a href="#" class="text-gray-800 hover:text-blue-500">Home</a>
-                    <a href="#" class="text-gray-800 hover:text-blue-500">Shop</a>
-                    <a href="#" class="text-gray-800 hover:text-blue-500">Deals</a>
-                    <a href="#" class="text-gray-800 hover:text-blue-500">Contact</a>
-                </div>
-
-                <!-- Search Bar -->
-                <div class="hidden md:block relative">
-                    <input id="searchInput" type="text" placeholder="Search products..."
-                        class="w-64 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                    <button class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500">
-                        🔍
-                    </button>
-                </div>
-
-                <!-- Icons -->
-                <div class="flex items-center space-x-4 ">
-                    <!-- Cart Icon -->
-                    <button id="cart-button" class="relative text-gray-800 hover:text-blue-500 focus:outline-none">
-                        <span0 class="text-red-600 font-bold absolute -top-3">5</span0>
-                        🛒
-                    </button>
-                    <!-- User Icon -->
-                    <a href="#" class="text-gray-800 hover:text-blue-500">
-                        👤
-                    </a>
-                    <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
-                        ☰
-                    </button>
-                </div>
+    <nav class="bg-white shadow- sticky-top
+        <div class=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+                <a href="#" class="text-2xl font-bold text-gray-800">ShopEasy</a>
             </div>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="text-gray-800 hover:text-blue-500">Home</a>
+                <a href="#" class="text-gray-800 hover:text-blue-500">Shop</a>
+                <a href="#" class="text-gray-800 hover:text-blue-500">Deals</a>
+                <a href="#" class="text-gray-800 hover:text-blue-500">Contact</a>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="hidden md:block relative">
+                <input id="searchInput" type="text" placeholder="Search products..."
+                    class="w-64 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                <button class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500">
+                    🔍
+                </button>
+            </div>
+
+            <!-- Icons -->
+            <div class="flex items-center space-x-4 ">
+                <!-- Cart Icon -->
+                <button id="cart-button" class="relative text-gray-800 hover:text-blue-500 focus:outline-none">
+                    <span0 class="text-red-600 font-bold absolute -top-3" id="cartCount">5</span0>
+                    🛒
+                </button>
+                <!-- User Icon -->
+                <a href="#" class="text-gray-800 hover:text-blue-500">
+                    👤
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
+                    ☰
+                </button>
+            </div>
+        </div>
         </div>
 
         <!-- Mobile Navigation Menu -->
@@ -64,14 +64,14 @@
 
     <!-- Right Side Cart Menu -->
     <div id="cart-menu"
-        class="fixed top-0 right-0 w-64 h-full bg-white shadow-md transform translate-x-full transition-transform duration-300">
+        class="fixed top-16 right-0 w-64 h-full bg-white shadow-md transform translate-x-full transition-transform duration-300 z-10">
         <div class="p-4 border-b">
             <h2 class="text-lg font-bold">Your Cart</h2>
             <button id="close-cart" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 focus:outline-none">
                 ✖
             </button>
         </div>
-        <div class="p-4">
+        <div class="p-4" id="cartContainer">
             <p class="text-gray-600">Your cart is currently empty.</p>
         </div>
     </div>
@@ -116,10 +116,11 @@
         </div>
 
         <!-- Right Section: Product Cards -->
-        <div class="w-3/4 flex">
+        <div class="w-3/4 flex ">
             <div class="w-3/4">
                 <h2 class="text-lg font-bold mb-4">Products</h2>
-                <div id="productContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div id="productContainer"
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 overflow-y-scroll">
                     <!-- Example Product Card -->
                     <div class="border rounded-lg p-4 shadow hover:shadow-lg transition-shadow h-[400px]">
                         <img src="https://via.placeholder.com/150" alt="Product Image"
@@ -138,32 +139,38 @@
                 </div>
             </div>
 
+        </div>
+    </div>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const cartButton = document.getElementById('cart-button');
+        const cartMenu = document.getElementById('cart-menu');
+        const closeCartButton = document.getElementById('close-cart');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Cart Menu Toggle
+        cartButton.addEventListener('click', () => {
+            cartMenu.classList.remove('translate-x-full');
+        });
+
+        closeCartButton.addEventListener('click', () => {
+            cartMenu.classList.add('translate-x-full');
+        });
 
 
-            <script>
-                // Mobile Menu Toggle
-                const mobileMenuButton = document.getElementById('mobile-menu-button');
-                const mobileMenu = document.getElementById('mobile-menu');
-                const cartButton = document.getElementById('cart-button');
-                const cartMenu = document.getElementById('cart-menu');
-                const closeCartButton = document.getElementById('close-cart');
-
-                mobileMenuButton.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                });
-
-                // Cart Menu Toggle
-                cartButton.addEventListener('click', () => {
-                    cartMenu.classList.remove('translate-x-full');
-                });
-
-                closeCartButton.addEventListener('click', () => {
-                    cartMenu.classList.add('translate-x-full');
-                });
 
 
-            </script>
-            <script type="module" src="./script.js"></script>
+    </script>
+    <script type="module" src="./script.js"></script>
+
+    <!-- CDN toastify -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 
 </html>
